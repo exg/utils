@@ -62,9 +62,9 @@ def rename_files(debug, root, old_index, new_index):
     moves2 = []
     tempdir = tempfile.TemporaryDirectory(dir=root)
     for ino in set(old_index.keys()) & set(new_index.keys()):
-        if old_index[ino] != new_index[ino]:
-            old_path = decode_path(old_index[ino])
-            new_path = decode_path(new_index[ino])
+        old_path = decode_path(old_index[ino])
+        new_path = decode_path(new_index[ino])
+        if old_path != new_path:
             if debug:
                 print("{0}{1} => {0}{2}".format(root, old_path, new_path))
             else:
