@@ -4,21 +4,29 @@ import argparse
 from functools import total_ordering
 from hearthstone.cardxml import load_dbf
 from hearthstone.deckstrings import Deck
+from hearthstone.enums import GameTag
 
 
 @total_ordering
 class Card:
     def __init__(self, data):
         self._data = data
+        if GameTag.DECK_RULE_COUNT_AS_COPY_OF_CARD_ID in data.tags:
+            self._id = min(
+                data.dbf_id,
+                data.tags[GameTag.DECK_RULE_COUNT_AS_COPY_OF_CARD_ID],
+            )
+        else:
+            self._id = data.dbf_id
 
     def __hash__(self):
-        return self._data.dbf_id
+        return self._id
 
     def __str__(self):
         return self._data.name
 
     def __eq__(self, other):
-        return self._data.dbf_id == other._data.dbf_id
+        return self._id == other._id
 
     def __lt__(self, other):
         return self._data.cost < other._data.cost
