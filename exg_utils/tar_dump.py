@@ -14,7 +14,7 @@ def main():
 
     with tarfile.open(args.file) as tf:
         for member in tf.getmembers():
-            print("%s %o" % (member.name, member.mode))
+            print("{} {:o} {}".format(member.name, member.mode, member.size))
             for name, value in member.pax_headers.items():
                 print("  ", name, value)
 
