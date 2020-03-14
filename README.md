@@ -24,6 +24,7 @@ inode-based file rename detection
 * `setdiff`: diff files as sets
 * `tabulate`: convert a matrix to a latex table
 * `tar-dump`: list the content of a TAR archive
+* `tar-size`: show the content size in bytes of a TAR archive
 * `urldecode`: decode a percent encoded sequence
 * `vcard2mutt`: convert a vcard file to a mutt alias file
 * `verify-bom`: verify the integrity of the files indexed by a BOM file

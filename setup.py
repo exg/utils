@@ -34,6 +34,7 @@ setuptools.setup(
             "setdiff = exg_utils.setdiff:main",
             "tabulate = exg_utils.tabulate:main",
             "tar-dump = exg_utils.tar_dump:main",
+            "tar-size = exg_utils.tar_size:main",
             "urldecode = exg_utils.urldecode:main",
             "vcard2mutt = exg_utils.vcard2mutt:main",
             "verify-bom = exg_utils.verify_bom:main",
