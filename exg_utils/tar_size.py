@@ -2,6 +2,7 @@
 
 import argparse
 import tarfile
+from . import util
 
 
 def main():
@@ -18,7 +19,7 @@ def main():
         for member in tf.getmembers():
             if member.name.startswith(args.prefix):
                 size += member.size
-        print(size)
+        print(util.format_size(size))
 
 
 if __name__ == "__main__":
