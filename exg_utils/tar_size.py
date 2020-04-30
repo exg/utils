@@ -9,7 +9,7 @@ def main():
     Show the content size in bytes of a TAR archive.
     """
     parser = argparse.ArgumentParser(description=main.__doc__)
-    parser.add_argument("--prefix")
+    parser.add_argument("--prefix", default="")
     parser.add_argument("file")
     args = parser.parse_args()
 
