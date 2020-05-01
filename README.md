@@ -19,6 +19,7 @@ inode-based file rename detection
 * `mutt-open`: mutt mailcap helper to open attachments in the background
 * `pastebin`: upload a file to a pastebin
 * `pconfig`: configure an autoconf-based source directory
+* `proc-size`: show the amount of unique and total memory used by a process tree
 * `pwd-tool`: manage mail passwords in the system keychain
 * `rename-symbol`: rename a symbol using rtags
 * `setdiff`: diff files as sets

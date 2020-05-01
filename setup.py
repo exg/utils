@@ -29,6 +29,7 @@ setuptools.setup(
             "mutt-open = exg_utils.mutt_open:main",
             "pastebin = exg_utils.pastebin:main",
             "pconfig = exg_utils.pconfig:main",
+            "proc-size = exg_utils.proc_size:main",
             "pwd-tool = exg_utils.pwd_tool:main",
             "rename-symbol = exg_utils.rename_symbol:main",
             "setdiff = exg_utils.setdiff:main",
