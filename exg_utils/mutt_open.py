@@ -14,11 +14,8 @@ def main():
     parser.add_argument("file")
     args = parser.parse_args()
 
-    home = os.path.expanduser("~")
-    name = os.path.basename(args.file)
-    cache_dir = os.path.join(home, ".cache", "mutt", "tmp")
-    path = os.path.join(cache_dir, name)
-    os.makedirs(cache_dir, mode=0o700, exist_ok=True)
+    head, name = os.path.split(args.file)
+    path = os.path.join(head, "att." + name)
     os.rename(args.file, path)
     subprocess.call([args.viewer, path])
 
