@@ -25,22 +25,24 @@ def main():
     Sync a git fork with the upstream repository.
     """
     parser = argparse.ArgumentParser(description=main.__doc__)
-    parser.parse_args()
+    parser.add_argument("--fork", default="origin")
+    parser.add_argument("--upstream", default="upstream")
+    args = parser.parse_args()
 
-    check_call(["git", "fetch", "-q", "origin"])
-    check_call(["git", "fetch", "-q", "upstream"])
+    check_call(["git", "fetch", "-q", args.fork])
+    check_call(["git", "fetch", "-q", args.upstream])
 
-    o_branches = get_refs("refs/remotes/origin")
-    u_branches = get_refs("refs/remotes/upstream")
+    f_branches = get_refs("refs/remotes/{}".format(args.fork))
+    u_branches = get_refs("refs/remotes/{}".format(args.upstream))
     l_branches = get_refs("refs/heads")
 
-    for obj in set(o_branches) - set(u_branches) - set(l_branches):
-        branch = o_branches[obj]
-        print("push origin :%s" % (branch))
+    for obj in set(f_branches) - set(u_branches) - set(l_branches):
+        branch = f_branches[obj]
+        print("push {} :{}".format(args.fork, branch))
 
-    for obj in set(u_branches) - set(o_branches):
+    for obj in set(u_branches) - set(f_branches):
         branch = u_branches[obj]
-        print("push origin %s:refs/heads/%s" % (obj, branch))
+        print("push {} {}:refs/heads/{}".format(args.fork, obj, branch))
 
 
 if __name__ == "__main__":
