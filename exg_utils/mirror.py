@@ -52,7 +52,7 @@ def create_index(root, rsync_cmd):
             line = line.rstrip()
             path = root.encode("latin-1") + line
             if os.path.isfile(path):
-                ino = os.stat(path).st_ino
+                ino = os.lstat(path).st_ino
                 index[str(ino)] = encode_path(line)
     return index
 
