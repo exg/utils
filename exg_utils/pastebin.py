@@ -12,7 +12,7 @@ import requests
 
 
 def pastebin_dpaste(fname, config):
-    with open(fname, encoding="latin-1") as f:
+    with open(fname, "rb") as f:
         data = {"expiry_days": config["expire"], "content": f.read()}
 
     resp = requests.post("http://dpaste.com/api/v2/", data)
@@ -22,7 +22,7 @@ def pastebin_dpaste(fname, config):
 # expire values
 # https://raw.githubusercontent.com/sayakb/sticky-notes/master/app/config/expire.php
 def pastebin_snotes(fname, config):
-    with open(fname, encoding="latin-1") as f:
+    with open(fname, "rb") as f:
         data = {
             "expire": int(config["expire"]) * 86400,
             "language": "text",
