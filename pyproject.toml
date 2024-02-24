@@ -1,3 +1,53 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exg.utils"
+version = "1.0"
+authors = [
+    { name = "Emanuele Giaquinta", email = "emanuele.giaquinta@gmail.com" },
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+]
+dependencies = [
+    "psutil",
+    "pyyaml",
+    "urllib3>=2.0",
+]
+description = "miscellaneous utilities"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+apt-dump = "exg.utils.apt_dump:main"
+b64decode = "exg.utils.b64decode:main"
+count-words = "exg.utils.count_words:main"
+cvs-ls = "exg.utils.cvs_ls:main"
+get-access-token = "exg.utils.get_access_token:main"
+ld-grep = "exg.utils.ld_grep:main"
+matrix = "exg.utils.matrix:main"
+md2mbox = "exg.utils.md2mbox:main"
+mirror = "exg.utils.mirror:main"
+mp3sum = "exg.utils.mp3sum:main"
+pastebin = "exg.utils.pastebin:main"
+pconfig = "exg.utils.pconfig:main"
+proc-size = "exg.utils.proc_size:main"
+pwd-tool = "exg.utils.pwd_tool:main"
+setdiff = "exg.utils.setdiff:main"
+tabulate = "exg.utils.tabulate:main"
+tar-dump = "exg.utils.tar_dump:main"
+tar-size = "exg.utils.tar_size:main"
+urldecode = "exg.utils.urldecode:main"
+vcard2mutt = "exg.utils.vcard2mutt:main"
+verify-bom = "exg.utils.verify_bom:main"
+vsort = "exg.utils.vsort:main"
+yaml2json = "exg.utils.yaml2json:main"
+
+[project.urls]
+Homepage = "https://github.com/exg/utils"
+
 [tool.mypy]
 show_error_codes = true
 strict = true
